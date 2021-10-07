@@ -1,6 +1,7 @@
 package com.rana.tictactoe
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.rana.tictactoe.databinding.ActivityMainBinding
@@ -44,48 +45,46 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun BoardTapped(view: android.view.View) {
+    fun boardTapped(view: View) {
         if (view !is Button)
             return
         addToBoard(view)
     }
 
-    private fun addToBoard(button: Button) {
 
-        //add the variables to the buttons
-
+    private fun addToBoard(button: Button)
+    //add the variables to the buttons
+    {
         if (button.text != "")
             return
 
         if (currentTurn == Turn.NOUGHT) {
-            button.text = "O"
-            currentTurn = Turn.NOUGHT
-        } else if (currentTurn == Turn.CROSS) {
-            button.text = "X"
+            button.text = NOUGHT
             currentTurn = Turn.CROSS
+        } else if (currentTurn == Turn.CROSS) {
+            button.text = CROSS
+            currentTurn = Turn.NOUGHT
         }
         setTurnLabel()
     }
 
-    private fun setTurnLabel() {
-        //decide the next text label
 
-
+    private fun setTurnLabel()
+    //decide the next text label
+    {
         var turnText = ""
-        if (currentTurn == Turn.CROSS) {
-            turnText = "Turn ${Turn.CROSS}"
-        } else if (currentTurn == Turn.NOUGHT) {
-            turnText = "Turn ${Turn.NOUGHT}"
-        }
+        if (currentTurn == Turn.CROSS)
+            turnText = "Turn $CROSS"
+        else if (currentTurn == Turn.NOUGHT)
+            turnText = "Turn $NOUGHT"
 
         binding.turnTV.text = turnText
     }
 
 
+    companion object {
 
-companion object
-{
-
-    const val NOUGHT = "O"
-    const val CROSS = "X"
-} }
+        const val NOUGHT = "O"
+        const val CROSS = "X"
+    }
+}
