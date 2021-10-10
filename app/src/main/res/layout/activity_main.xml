@@ -4,9 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A15E76"
     tools:context=".MainActivity">
 
+
+<ImageView
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:layout_width="wrap_content"
+    android:background="@drawable/gradient"
+    android:layout_height="wrap_content"/>
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/turnTV"
         android:layout_width="wrap_content"
@@ -14,17 +20,17 @@
         android:layout_marginTop="34dp"
         android:gravity="center"
         android:text="Turn X"
-        android:textColor="@color/white"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textColor="@color/rose"
         android:textSize="44sp"
-        android:textStyle="bold"
+        android:textStyle="italic"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-
     <LinearLayout
         style="@style/row"
+        android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"

@@ -1,5 +1,6 @@
 package com.rana.tictactoe
 
+import android.app.AlertDialog.THEME_HOLO_LIGHT
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -54,12 +55,11 @@ class MainActivity : AppCompatActivity() {
         if (CheckVictory(NOUGHT)) {
 
             noughtsScore++
-            result("Noughts Win! " +
-                    "Congrats bro")
+            result("Noughts Win! ")
 
         } else if (CheckVictory(CROSS)) {
             crossesScore++
-            result("Crosses Win!" + "Congrats bro")
+            result("Crosses Win!")
         }
 
         if (fullBoard()) {
@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity() {
     private fun match(button: Button, symbol: String): Boolean = button.text == symbol
     private fun result(title: String) {
         val message = "\nNoughts $noughtsScore\n\nCrosses $crossesScore"
-        AlertDialog.Builder(this)
+        AlertDialog.Builder(this, R.style.AlertDialogCustom)
             .setTitle(title)
             .setMessage(message)
             .setPositiveButton("Reset")
